@@ -171,6 +171,56 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //botoes de ação:
+        btnSoma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacao = "soma";
+                proximoNumero();
+            }
+        });
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacao = "sub";
+                proximoNumero();
+            }
+        });
+
+        btnMult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacao = "mult";
+                proximoNumero();
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                operacao = "div";
+                proximoNumero();
+            }
+        });
+
+        btnIgual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcular();
+                exibirResultado();
+                Total = 0;
+                count = 0;
+            }
+        });
+
+        btnLimp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpar();
+            }
+        });
+
     }
 
     //exibição em tela:
