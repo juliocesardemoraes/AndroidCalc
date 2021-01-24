@@ -175,6 +175,7 @@ public class MainActivity extends AppCompatActivity {
         btnSoma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fixBug(false);
                 operacao = "soma";
                 proximoNumero();
             }
@@ -183,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
         btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fixBug(false);
                 operacao = "sub";
                 proximoNumero();
             }
@@ -191,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
         btnMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fixBug(false);
                 operacao = "mult";
                 proximoNumero();
             }
@@ -199,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fixBug(false);
                 operacao = "div";
                 proximoNumero();
             }
@@ -222,6 +226,17 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+    private void fixBug(boolean proximoNumero){
+        if(proximoNumero==true){
+            if(i!=0){
+                calcular();
+            }
+        }else{
+            if(i==1){
+                calcular();
+            }
+        }
+    }
 
     //exibição em tela:
     private void exibirResultado(){
@@ -237,13 +252,19 @@ public class MainActivity extends AppCompatActivity {
             //se ainda não foi calculado exibir o numeral
             String tela = String.valueOf(Result[i]);
             RESULTSCREEN.setText(tela);
+
         }
     }
 
     //Passa o array para a próxima posição
     private void proximoNumero(){
         count = 0;
-        i = 1;
+        if (i == 0) {
+            i = 1;
+        } else {
+            fixBug(true);
+        }
+
     }
 
     //Limpar a tela:
